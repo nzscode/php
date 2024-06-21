@@ -40,28 +40,2368 @@
         <main>
             <article>
                 <section>
-                    <h2 class="lvl2" id="">Level 2</h2>
+                    <h2 class="lvl2" id="basics">Basics</h2>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>
+                            Although once installed, Visual Studio can write and
+                            save php documents, until it is moved to the htdocs
+                            folder or the MAMP Application, It will not be
+                            accessible as a web page
+                        </li>
+                        <li>
+                            Once saved in the htdocs folder, to access it from
+                            the browser, navigate, to
+                            localhost/<i>foldername</i>/<i>php file</i>
+                        </li>
                     </ul>
                     <section>
-                        <h3 class="lvl3" id="">Level 3</h3>
+                        <h3 class="lvl3" id="syntax">Syntax</h3>
+
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Definition</div>
+                                <div class="cell-header">Code</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <span class="lvl4">Basic Syntax</span>:
+                                    <ul>
+                                        <li>
+                                            File names end with "<i>.php</i>"
+                                        </li>
+                                        <li>The first line is HTML</li>
+                                        <li>
+                                            php code
+                                            <u><b>HAS</b></u> to start with "<i
+                                                ><b>&lt;?php</b></i
+                                            >"
+                                        </li>
+                                        <ul>
+                                            <li>
+                                                This connects and runs server
+                                                side.
+                                            </li>
+                                        </ul>
+                                        <li>
+                                            php code <u><b>MUST</b></u> end with
+                                            "<i><b>?&gt;</b></i
+                                            >"
+                                        </li>
+                                        <li>
+                                            The code run in php, becomes part of
+                                            the page
+                                        </li>
+                                        <li>
+                                            All lines of code must end with
+                                            <i><u>;</u></i
+                                            >(semi-colon)
+                                        </li>
+                                        <li>
+                                            The <i><u>\</u></i> is used as an
+                                            escape character
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;h1&gt;This is a sample of php syntax&lt;/h1&gt;
+&lt;?php
+    echo "Hello There\n";
+    $answer = 5*3;
+    echo "The answer is $answer.";
+?&gt;
+&lt;p&gt;This is just a paragraph.&lt;/p&gt;</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Keywords</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            These words are reserved for php
+                                        </li>
+                                        <li>
+                                            All variables start with a dollar
+                                            sign:
+                                            <b><u>$</u></b>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>$abc = 12
+$total = 0;
+$largest_so_far = 5;</code></pre>
+
+                                    <pre><code>$x = 2;
+$y = $x + 7;
+print $y;
+
+<span class="output">// 9</span></code></pre>
+                                </div>
+                            </div>
+
+                            <div class="body-row">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >String Literals</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            Can use
+                                            <i><u>'single quotes'</u></i> or
+                                            <i><u>"double quotes"</u></i>
+                                        </li>
+                                        <li>
+                                            strings can span multiple lines, the
+                                            newline is part of the string
+                                        </li>
+                                        <li>
+                                            Single quotes strings can be used
+                                            inside double quotes strings if they
+                                            are escaped.
+                                        </li>
+                                        <li>
+                                            double quotes and
+                                            <i><u>\n</u></i> can be used to
+                                            expand a new line
+                                        </li>
+                                        <li>
+                                            single quotes with
+                                            <i><u>\n</u></i> will not expand
+                                            into a new line, nor will variables
+                                            expand
+                                        </li>
+                                        <li>
+                                            Variables inside strings are
+                                            expanded to a newline
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+echo "This is a simple string with double quotation marks\n";
+echo 'This is also a simple string but with single quotation marks\n';
+?&gt;</code></pre>
+                                    <pre><code>&lt;?php
+echo "This string has
+multiple new
+lines in it.
+4 lines in fact.";
+
+echo 'This single quoted
+string also has multiple
+new lines in it. And guess what
+it also spans four lines!'';
+?&gt;</code></pre>
+                                    <pre><code>&lt;?php
+echo "This\'ll be a string with a single quote inside it.";
+?&gt;
+
+<span class="output">This'll be a string with a single quote inside it.</span></code></pre>
+                                    <pre><code>&lt;?php
+echo "This will expand: a \na newline"
+?&gt;
+
+<span class="output">// This will expand:
+    a newline</span></code></pre>
+                                    <pre><code>&lt;?php
+echo "This will not \n expand a new line";
+
+$answer = 13;
+$echo 'Variables like $answer will also not expand';
+?&gt;
+
+<span class="output">This will not expand \n a new line
+Variables like $answer will also not expand</span></code></pre>
+                                    <pre><code>&lt;?php
+$answer = 5;
+
+echo "The following variable between the commas ,$answer, will be expanded.";
+?&gt;
+
+<span class="output">The following variable between the commas ,5, will be expanded.</span></code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Comments</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            Use <i><u>//</u></i
+                                            >, OR <i><u>#</u></i> OR
+                                            <i><u>/* */</u></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+echo "This is a comment with //"; //Heyo, check out this comment
+echo "This is a multiline comment using /* */"; /* This
+                                                    comment
+                                                    is for multiple lines*/
+echo "This is a shell style comment using #"; # It is also ok to use this for a comment
+?&gt;</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4">Output</span></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            echo can output multiple paremeters,
+                                            when parentheses are omitted
+                                        </li>
+                                        <li>
+                                            echo can output one parameter if a
+                                            parentheses is used.
+                                        </li>
+                                        <li>
+                                            print can output
+                                            <i
+                                                ><u><b>ONLY</b></u></i
+                                            >
+                                            one parameter
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+echo "This was output using echo";
+$x = 12;
+&y = "samantha";
+
+echo ($x);
+echo $x, #y;
+//with parentheses echo will only output one parameter, but without parentheses, it can output multiple parameters.
+
+
+print "This was output using print";
+print $x;
+//print can not output two parameters
+?&gt;</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >String Functions</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            <a
+                                                href="https://www.php.net/manual/en/ref.strings.php"
+                                                >php.net - String Functions</a
+                                            >
+                                        </li>
+                                        <li>Commonly used String Functions</li>
+                                        <ul>
+                                            <li>
+                                                <b
+                                                    >echo($str, $ar,
+                                                    $expression)</b
+                                                >Outputs one or more
+                                                expressions, with no additional
+                                                newlines or spaces.
+                                            </li>
+                                            <li>
+                                                <b>explode($seperator,$str)</b
+                                                >Returns an array of strings
+                                                created by splitting the string
+                                                parameter on boundaries formed
+                                                by the separator.
+                                            </li>
+                                            <li>
+                                                <b>fprintf</b>Write a formatted
+                                                string to a stream
+                                            </li>
+                                            <li>
+                                                <b>implode(#seperator, $ar)</b>
+                                                Join array elements with a
+                                                string
+                                            </li>
+                                            <li>
+                                                <b>nl2br($str)</b>Inserts HTML
+                                                line breaks before all newlines
+                                                in a string
+                                            </li>
+                                            <li>
+                                                <b>parse_str($str,$ar)</b>Parses
+                                                the string into variables
+                                            </li>
+                                            <li>
+                                                <b>print($expression)</b>Output
+                                                a string
+                                            </li>
+                                            <li>
+                                                <b>printf($str)</b> Output a
+                                                formatted string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >similar_text($str1, $str2,
+                                                    $percent_float)</b
+                                                >Calculate the similarity
+                                                between two strings
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >str_contains($str,
+                                                    $needle)</b
+                                                >Determine if a string contains
+                                                a given substring(case
+                                                sensitive)
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >str_ends_with($str,$needle)</b
+                                                >
+                                                — Checks if a string ends with a
+                                                given substring
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >str_pad($str,$length,$pad,$left|right|both)</b
+                                                >Pad a string to a certain
+                                                length with another string
+                                            </li>
+                                            <li>
+                                                <b>str_repeat($str,$times)</b
+                                                >Repeat a string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >str-replace($search,$replace,$subject,$count)</b
+                                                >Replace all occurrences of the
+                                                search string with the
+                                                replacement string
+                                            </li>
+                                            <li>
+                                                <b>str_shuffle($str)</b>Randomly
+                                                shuffles a string
+                                            </li>
+                                            <li>
+                                                <b>str_split($str,$length)</b
+                                                >Convert a string to an array
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >str_starts_with($str,$needle)</b
+                                                >Checks if a string starts with
+                                                a given substring
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >str_word_count($str,$format)</b
+                                                >Return information about words
+                                                used in a string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >strip_tags($str,$tags_to_keep)</b
+                                                >Strip HTML and PHP tags from a
+                                                string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >stripos($str,$needle,$offset)</b
+                                                >Find the position of the first
+                                                occurrence of a case-insensitive
+                                                substring in a string
+                                            </li>
+                                            <li>
+                                                <b>stripslashes($str)</b
+                                                >Un-quotes a quoted string
+                                            </li>
+                                            <li>
+                                                <b>strlen($str)</b>Get string
+                                                length
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >strpbrk($string,$characters)</b
+                                                >Search a string for any of a
+                                                set of characters
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >strpos($str,$needle,$offset)</b
+                                                >
+                                                Find the position of the first
+                                                occurrence of a substring in a
+                                                string
+                                            </li>
+                                            <li>
+                                                <b>strrchr($str,$needle)</b>Find
+                                                the last occurrence of a
+                                                character in a string
+                                            </li>
+                                            <li>
+                                                <b>strrev($str)</b>Reverse a
+                                                string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >strripos($str,$needle,$offset)</b
+                                                >Find the position of the last
+                                                occurrence of a case-insensitive
+                                                substring in a string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >strrpos($str,$needle,$offset)</b
+                                                >Find the position of the last
+                                                occurrence of a substring in a
+                                                string
+                                            </li>
+                                            <li>
+                                                <b>strstr($str,$needle)</b> Find
+                                                the first occurrence of a string
+                                            </li>
+                                            <li>
+                                                <b>strtolower($str)</b>Make a
+                                                string lowercase
+                                            </li>
+                                            <li>
+                                                <b>strtoupper($str)</b>Make a
+                                                string uppercase
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >substr_count($str,$needle,$offset,$length)</b
+                                                >Count the number of substring
+                                                occurrences.Needle is case
+                                                sensitive.
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >substr_replace($str,$replace,$offset,$length)</b
+                                                >Replace text within a portion
+                                                of a string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >substr($str,$offset,$length)</b
+                                                >Return part of a string
+                                            </li>
+                                            <li>
+                                                <b>trim($str,$characters)</b
+                                                >Strip whitespace (or other
+                                                characters) from the beginning
+                                                and end of a string
+                                            </li>
+                                            <li>
+                                                <b>ucfirst($str)</b>Make a
+                                                string's first character
+                                                uppercase
+                                            </li>
+                                            <li>
+                                                <b>ucwords($str,$seperators)</b>
+                                                Uppercase the first character of
+                                                each word in a string
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >wordwrap($str,$width,$break)</b
+                                                >Wraps a string to a given
+                                                number of characters
+                                            </li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                                <div class="cells"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="operators-expressions">
+                            Operators & Expressions
+                        </h3>
+
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Example</div>
+                                <div class="cell-header">Code</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Mathematical Operators</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            Uses implicit conversion - (strings
+                                            that are numerical in value, when
+                                            used with numbers in mathematical
+                                            operations, are treated like
+                                            numbers.)
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+$x = 5 + 13;
+echo($x);
+
+<span class="output">// 18</span>
+
+#y = "3" * 3;
+echo($y);
+
+<span class="output">// 9</span>
+
+$d = 37;
+echo $d / 3;
+
+<span class="output">12.3333333333</span>
+?&gt;</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Operators</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>Increment|Decrement (++ -- )</li>
+                                        <li>String Concatenation (.)</li>
+                                        <li>
+                                            Equality (== !=) (type conversion)
+                                        </li>
+                                        <li>
+                                            Identity (=== !==)(no type
+                                            conversion)
+                                        </li>
+                                        <li>Ternary (? :) (if then else)</li>
+                                        <li>
+                                            Side-effect Assignment (+= -= .=)
+                                        </li>
+                                        <li>
+                                            Bitwise Operators (>> &gt;&gt; ^ |
+                                            &) RARELY USED
+                                        </li>
+                                        <li>Modulo (%)</li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+$x = 5;
+$x++;
+echo $x;
+
+<span class="output">// 6</span>
+
+$string1 = "Jane";
+$string2 = "Doe";
+$string3 = 25;
+echo $string1.$string2.$string3;
+
+<span class="output">// JaneDoe25</span>
+
+$x = "3";
+$y = 3;
+if ($x == $y){
+    echo "\$3 was equal to $y";
+}
+
+<span class="output">// $3 was equal to 3</span>
+
+$x = "3";
+$y = 3;
+if ($x !== $y){
+    echo "\$3 was not equal to $y";
+}else{
+    echo "\$3 was equal to $y";
+}
+
+<span class="output">// $3 was not equal to 3</span>
+
+$x = "3";
+$y = 3;
+$answer = $x !== $y ? "\$3 was not equal to $y" : "\$3 was equal to $y";
+echo $answer;
+
+<span class="output">// $3 was not equal to 3</span>
+
+$x = "5";
+$y = "6";
+$x += $y;
+echo $x;
+
+<span class="output">// 11</span>
+
+$x = 13;
+$y = 2;
+echo ($x % $y) == 0 ? "Even number" : "Odd number";
+
+<span class="output">// Odd number</span>
+?&gt;</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Conditionals</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            Uses Logical Operators (== != &lt;
+                                            &gt; &lt;= =&gt; && || !)
+                                        </li>
+                                        <li>
+                                            If the statement is in a single line
+                                            curly braces are not rquired
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+$q = 88;
+if ($q == 88){
+    echo "q equals 88";
+}else if ($q == 55) {
+    echo "q equals 55";
+}else{
+    echo "q does not equal 88 or 55";
+}
+
+<span class="output">// q equals 88</span>
+
+$page = "About";
+if      ($page == "Home") echo "You selected Home";
+elseif  ($page == "About") echo "You selected About";
+elseif  ($page == "News") echo "You selected News";
+
+<span class="output">// You selected About</span>
+?&gt;</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Looping</span
+                                            ></u
+                                        ></b
+                                    >
+                                </div>
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >While Loop</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+
+$fuel = 10;
+while ($fuel > 1) {
+    print "There is still fuel left: $fuel\n";
+    $fuel --
+}
+?&gt;
+
+<span class="output">// There is still fuel left: 10 There is still fuel left: 9 
+    There is still fuel left: 8 There is still fuel left: 7 There is still fuel left: 6 
+    There is still fuel left: 5 There is still fuel left: 4 There is still fuel left: 3
+    There is still fuel left: 2</span>
+</code></pre>
+
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >Do Loop</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+$count = 1;
+do {
+    print "$count times 5 is: " .$count * 5;
+    print(\n);
+}while (++$count &lt;= 5);
+
+<span class="output">// 1 times 5 is: 3 2 times 5 is: 6 3 times 5 is: 9 4 times 5 is: 12 5 times 5 is: 15</span>
+
+<b><u>Will stop when $count reaches 5</u></b>
+$count = 1;
+do {
+    print "$count";
+    print("\n");
+}while (++$count &lt;= 5);
+
+<span class="output">// 1 2 3 4 5</span>
+
+<b><u>Will stop when $counts reaches 5+1</u></b>
+$counts = 1;
+do {
+    print "$counts";
+    print("\n");
+}while ($counts++ &lt;= 5);
+
+<span class="output">// 1 2 3 4 5 6</span>
+?&gt;</code></pre>
+
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >For Loop</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+for ($i = 1; $i &lt;5; $i++){
+    print "$i\n";
+}
+?&gt;
+
+<span class="output">// 1 2 3 4</span></code></pre>
+
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >Breaking out of a Loop</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+    for ($i = 10; $i &gt;0; $i--){
+        if($i == 3) break;
+        print "$i\n";
+    }
+?&gt;</code></pre>
+
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >Continuing a Loop</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+for ($i = 1; $i&lt; 10; $i++){
+    if (($i % 2) == 0) continue;
+    print $count."\n";
+}
+?&gt;</code>// 1 3 5 7 9</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="Arrays">Arrays</h3>
+
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Definition</div>
+                                <div class="cell-header">Code</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Basic Array</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            Can be made up of single items, that
+                                            are automatically assigned an index,
+                                            or can be made up of key:value
+                                            pairs.
+                                        </li>
+                                        <li>Better than Python Dictionaries</li>
+                                        <li>Better than Java Hashmaps</li>
+                                        <li>
+                                            Have all the benefits of Python
+                                            Dictionaries and can maintain the
+                                            order of items.
+                                        </li>
+                                        <li>
+                                            Can be indexed by numbers like a
+                                            list, or can have Key : Value pairs
+                                        </li>
+                                        <li>
+                                            <b><u>print_r</u></b>
+                                        </li>
+                                        <ul>
+                                            <li>
+                                                for recursive (iterating), used
+                                                with &lt;pre&gt; it shows PHP
+                                                data clearly.
+                                            </li>
+                                            <li>
+                                                print_r prints true as 1 and
+                                                false as 0
+                                            </li>
+                                        </ul>
+                                        <li>
+                                            <b><u>var_dump</u></b>
+                                        </li>
+                                        <ul>
+                                            <li>
+                                                provides the length of the
+                                                array, and the type and
+                                                length(for strings) of the
+                                                value.
+                                            </li>
+                                            <li>Also prints true|false.</li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >Indexed Values</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+    $stuff = array("Ribbons", "Needles", "Thimbles");
+    echo $stuff[1], "\n";
+    $count_stuff = count($stuff);
+    echo "&lt;br&gt;&lt;br&gt;";
+
+    for ($i = 0; $i &lt; $count_stuff; $i++ ){
+        echo $i.":\n".$stuff[$i]."&lt;br&gt;";
+    }
+?&gt;
+
+<span class="output">Needles
+
+0: Ribbons
+1: Needles
+2: Thimbles</span></code></pre>
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >Key : Value</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+    $stuff = array ("fName" => "Jane",
+    "lName" => "Thompson",
+    "age" => 23,
+    "student" => true);
+
+
+    foreach ($stuff as $key => $value){
+        echo "$key : $value &lt;br&gt;";
+    }
+
+?&gt;
+
+<span class="output">//fName : Jane
+//lName : Thompson
+//age : 23
+//student : 1</span>
+</code></pre>
+                                    <br />
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >print_r</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            for recursive (iterating), used with
+                                            &lt;pre&gt; it shows PHP data
+                                            clearly.
+                                        </li>
+                                        <li>
+                                            print_r prints true as 1 and false
+                                            as 0
+                                        </li>
+                                    </ul>
+                                    <pre><code>&lt;?php
+    $stuff = array ("fName" => "Jane",
+    "lName" => "Thompson",
+    "age" => 23,
+    "student" => true);
+
+
+    echo("&lt;pre&gt;");
+    print_r($stuff)."&lt;br&gt;";
+    echo ("&lt;br&gt;&lt;pre&gt;");
+?&gt;
+
+<span class="output">//Array
+(
+    [fName] => Jane
+    [lName] => Thompson
+    [age] => 23
+    [student] => 1
+)</span>
+</code></pre>
+
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >var_dump</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            provides the length of the array,
+                                            and the type and length(for strings)
+                                            of the value.
+                                        </li>
+                                        <li>Also prints true|false.</li>
+                                    </ul>
+                                    <pre><code>&lt;?php
+$stuff = array ("fName" => "Jane",
+    "lName" => "Thompson",
+    "age" => 23,
+    "student" => true);
+
+
+    echo("&lt;pre&gt;");
+    var_dump($stuff)."&lt;br&gt;";
+    echo ("&lt;br&gt;&lt;pre&gt;");
+?&gt;
+
+<span class="output">//array(4) {
+    ["fName"]=>
+    string(4) "Jane"
+    ["lName"]=>
+    string(8) "Thompson"
+    ["age"]=>
+    int(23)
+    ["student"]=>
+    bool(true)
+  }</span>
+</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Building an Array</span
+                                            ></u
+                                        ></b
+                                    >
+                                </div>
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >Indexed Array</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+$newArray = array();
+$newArray[] = "cat";
+$newArray[]= "dog";
+print_r($newArray);
+
+echo("&lt;pre&gt;");
+print_r($newArray)."&lt;br&gt;";
+echo("&lt;/pre&gt;")
+
+?&gt;
+
+<span class="output">//Array
+    (
+        [0] => cat
+        [1] => dog
+    )</span></code></pre>
+                                    <br />
+
+                                    <b
+                                        ><u
+                                            ><span class="lvl5"
+                                                >Key:Value Array</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <pre><code>&lt;?php
+$newArray = array();
+$newArray["cat"] = "kitty";
+$newArray["dog"]= "Captain Johnson III";
+print_r($newArray);
+
+echo("&lt;pre&gt;");
+print_r($newArray)."&lt;br&gt;";
+echo("&lt;/pre&gt;")
+
+?&gt;
+
+<span class="output">//Array
+    (
+        [cat] => kitty
+        [dog] => Captain Johnson III
+    )</span></code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Looping Through an Array</span
+                                            ></u
+                                        ></b
+                                    >
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+$stuff = array ("fName" => "Jane",
+    "lName" => "Thompson",
+    "age" => 23,
+    "student" => true);
+
+
+    echo("&lt;pre&gt;");
+    foreach ($stuff as $key => $value){
+        echo "Key =",$key, "   Value=",$value,"&lt;br&gt;" ;
+    }
+    echo("&lt;/pre&gt;");
+?&gt;
+
+<span class="output">//fName : Jane
+//lName : Thompson
+//age : 23
+//student : 1</span>
+</code></pre>
+                                    <pre><code>&lt;?php
+$stuff = array ("fName" => "Jane",
+    "lName" => "Thompson",
+    "age" => 23,
+    "student" => true);
+
+    echo("&lt;pre&gt;");
+    foreach ($stuff as $key => $value){
+            echo "$key : $value &lt;br&gt;";
+    }
+    echo("&lt;/pre&gt;");
+
+?&gt;
+
+<span class="output">//fName : Jane 
+    lName : Thompson 
+    age : 23 
+    student : 1 </span>
+                                </code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">
+                                    <b
+                                        ><u
+                                            ><span class="lvl4"
+                                                >Array Functions</span
+                                            ></u
+                                        ></b
+                                    >
+                                    <ul>
+                                        <li>
+                                            <a
+                                                href="https://www.php.net/manual/en/ref.array.php"
+                                            ></a
+                                            >php.net - Array Functions
+                                        </li>
+                                        <li>Commonly used array functions</li>
+                                        <ul>
+                                            <li>
+                                                <b>
+                                                    array_chunk($ar, $length,
+                                                    $preserve-keys)
+                                                </b>
+                                                — Split an array into chunks
+                                            </li>
+                                            <li>
+                                                <b
+                                                    >array_key_exists(&key,
+                                                    &ar)</b
+                                                >
+                                                - Returns True if <i>key</i> is
+                                                set in the array
+                                            </li>
+                                            <li>
+                                                <b>array_keys($ar)</b> — Return
+                                                all the keys or a subset of the
+                                                keys of an array
+                                            </li>
+                                            <li>
+                                                <b>array_merge($ar)</b> — Merge
+                                                one or more arrays
+                                            </li>
+                                            <li>
+                                                <b>array_pop($ar)</b> — Pop the
+                                                element off the end of array
+                                            </li>
+                                            <li>
+                                                <b>array_push($ar)</b> — Push
+                                                one or more elements onto the
+                                                end of array
+                                            </li>
+                                            <li>
+                                                <b>
+                                                    array_reverse($ar,
+                                                    $preserve-keys)
+                                                </b>
+                                                — Return an array with elements
+                                                in reverse order
+                                            </li>
+                                            <li>
+                                                <b>array_search($value, $ar)</b>
+                                                — Searches the array for a given
+                                                value and returns the first
+                                                corresponding key if successful
+                                            </li>
+                                            <li>
+                                                <b>array_shift($ar)</b> — Shift
+                                                an element off the beginning of
+                                                array
+                                            </li>
+                                            <li>
+                                                <b>
+                                                    array_slice($ar, $offset,
+                                                    $length, $preserve-keys)
+                                                </b>
+                                                — Extract a slice of the array
+                                            </li>
+
+                                            <li>
+                                                <b>
+                                                    array_splice($ar, $offset,
+                                                    $length, $replacement)
+                                                </b>
+                                                — Remove a portion of the array
+                                                and replace it with something
+                                                else
+                                            </li>
+                                            <li>
+                                                <b>array_sum($ar)</b> —
+                                                Calculate the sum of values in
+                                                an array
+                                            </li>
+                                            <li>
+                                                <b>arsort($ar)</b> — Sort an
+                                                array in descending order and
+                                                maintain index association
+                                            </li>
+                                            <li>
+                                                <b>asort($ar)</b> — Sort an
+                                                array in ascending order and
+                                                maintain index association
+                                            </li>
+
+                                            <li>
+                                                <b>count($ar)</b> — Counts all
+                                                elements in an array
+                                            </li>
+                                            <li>
+                                                <b>in_array($ar)</b> — Checks if
+                                                a value exists in an array
+                                            </li>
+                                            <li>
+                                                <b>is_array($ar)</b> - Returns
+                                                true if a variable is an array
+                                            </li>
+                                            <li>
+                                                <b>krsort($ar)</b> — Sort an
+                                                array by key in descending order
+                                            </li>
+                                            <li>
+                                                <b>ksort($ar)</b> — Sort an
+                                                array by key in ascending order
+                                            </li>
+                                            <li>
+                                                <b>shuffle($ar)</b> - Randomlyu
+                                                shuffles items in an array
+                                            </li>
+
+                                            <li>
+                                                <b>sort($ar)</b> — Sort an array
+                                                in ascending order by values,
+                                                ignores keys, and then gets rid
+                                                of them
+                                            </li>
+                                            <li>
+                                                <b>explode(seperator, $ar)</b>
+                                                Divides the string into chunks,
+                                                by breaking them at the
+                                                seperator and putting them in an
+                                                indexed array
+                                            </li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code><b><u>Searching if a value exists</u></b>&lt;?php
+$a = array("onion", "tomato", "carrot", "cabbage");
+if(in_array("carrot", $a)){
+    $carrot_key = array_search("carrot", $a);
+    echo $carrot_key." is the index of carrot.";
+}
+
+?&gt;
+
+<span class="output">// 2 is the index of carrot</span>
+                                </code></pre>
+
+                                    <b
+                                        ><u
+                                            >Using Null Coalesce Operator,
+                                            similar to Ternary operator</u
+                                        ></b
+                                    >
+                                    <pre><code><b><u>PHP 7.0.0 Only</u></b>
+                                    &lt;?php
+$b = array("fName" => "Sandra", "lName" => "Roberts", "age" => "43", "teacher" => false);
+$name = $b['lName'] ?? 'not found';
+$addr = $b['addr'] ?? 'not found';
+
+?&gt;
+
+<span class="output">//Roberts
+    not found</span>
+
+<b><u>Before PHP 7.0.0</u></b>
+&lt;?php
+$b = array("fName" => "Sandra", "lName" => "Roberts", "age" => "43", "teacher" => false);
+$name = isset($b['lName']) ? $b['lName'] : 'not found';
+$addr = isset($b['addr']) ? $b['addr'] : 'not found';
+?&gt;
+
+<span class="output">//Roberts
+    not found</span></code></pre>
+                                    <b><u>Exploding Array</u></b>
+
+                                    <pre><code>&lt;pre&gt;
+&lt;?php
+$string = "This is a sentence.";
+$broken_string_array = explode(" ", $string);
+
+print_r($broken_string_array);
+
+?&gt;
+&lt;/pre&gt;
+
+
+<span class="output">//Array
+    (
+        [0] => This
+        [1] => is
+        [2] => a
+        [3] => sentence.
+    )</span>
+</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="lvl3" id="functions">Functions</h3>
+
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Definition</div>
+                                <div class="cell-header">Code</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <span class="lvl4">Basic Function</span>
+                                    <ul>
+                                        <li>
+                                            Function names do not start with a
+                                            dollar sign
+                                        </li>
+                                        <li>Avoid built-in function names</li>
+                                        <li>
+                                            Functions normally pass the value in
+                                            which means it makes a copy of the
+                                            variable.<br />
+                                            the <i>\&</i> means that the actual
+                                            reference is being changed.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+function greet($fname) {
+    print "Hello $fname\n";
+}
+
+greet("Sandra");
+
+<span class="output">// Hello Sandra</span>
+?&gt;</code></pre>
+
+                                    <b><u>Return Values</u></b>
+                                    <pre><code>&lt;?php
+function sum($a, $b){
+    return $a + $b;
+}
+
+print sum(7, 1);
+?&gt;
+
+<span class="output">// 8</span>
+
+function Howdy($lang){
+    if($lang == "es") return "Hola";
+    if($lang == "fr") return "Bonjour";
+    return "Hello";
+}
+
+print howdy('es')." Tammy\n<br>";
+print howdy('fr')." Francois\n";
+
+<span class="output">// Hola Tammy
+// Bonjour Francois</span></code></pre>
+
+                                    <b><u>Default Arguments</u></b>
+                                    <pre><code>&lt;?php
+function multiply($a, $b = 6){
+    return $a * $b;
+}
+
+print multiply(3);
+?&gt;
+
+<span class="output">// 18</span>
+</code></pre>
+
+                                    <b><u>Call by Reference</u></b>
+                                    <pre><code>&lt;?php
+function multiply(&$a, $b = 7){
+    return $a * $b;
+}
+$a = 3;
+print multiply($a)."&lt;br&gt;";
+print $a;
+    ?&gt;
+</code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row odd-bg">
+                                <div class="cells">Variable Scope</div>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+$a = 7;
+function add($b){
+    global $a;
+    return $a + $b;
+}
+echo add(3);
+?&gt;
+<span class="output">// 10</span></code></pre>
+                                </div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">Modularity</div>
+                                <ul>
+                                    <li>
+                                        To include the same top banner, and the
+                                        same nav banner in each and every web
+                                        page, we make a php of each of those.
+                                        Which can then be added on to each web
+                                        page
+                                    </li>
+                                </ul>
+                                <div class="cells">
+                                    <pre><code>&lt;?php
+require "top.php";
+require"nav.php";                           
+&gt;?
+&lt;div id="container"&gt;
+&lt;h1&gt;Web Applications...&lt;/h1&gt;
+.
+.
+.
+&lt;/div&gt;
+&gt;?</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <h2 class="lvl2" id="html-forms">HTML Forms</h2>
+                    <ul>
+                        <li>
+                            POST ($_POST) is used when data is being created or
+                            modified
+                        </li>
+                        <li>
+                            GET ($_GET) is used when reading or modifying things
+                        </li>
+                        <li>
+                            Web search spiders normally follow GET URLSs and not
+                            POST URLs
+                        </li>
+                        <li>
+                            GET URLs should be "idempotent" - the same URL
+                            should give the "same thing" each time it is
+                            accessed
+                        </li>
+                        <li>
+                            GET has a max limit of bytes of parameters and
+                            values. (~2k)
+                        </li>
+                    </ul>
+                    <section>
+                        <h3 class="lvl3" id="get">$_GET:</h3>
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Examples</div>
+                                <div class="cell-header">PHP</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <img
+                                        src="./images/Screenshot 2024-06-20 153711.png"
+                                        alt="get php image"
+                                    />
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;p&gt;Many Field Types...&lt;/p&gt;
+&lt;form&gt;
+    &lt;p&gt;
+        &lt;label for="guess"&gt;Input Guess&lt;/label&gt;
+        &lt;input type="text" name="guess" id="guess" size="40"&gt;
+    &lt;/p&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+&lt;pre&gt;
+$_GET:
+&lt;?php
+    print_r($_GET);
+?&gt;
+&lt;/pre&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer-table">
+                            <div class="head-row-full">
+                                <div class="cell-header">Default CSS</div>
+                            </div>
+                            <div class="body-row-full">
+                                <div class="cells">
+                                    <pre><code></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="post">$_POST:</h3>
                         <ul>
-                            <li>Lorem ipsum dolor sit amet.</li>
+                            <li>
+                                Does not show the user entries on the address
+                                bar
+                            </li>
+                        </ul>
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Examples</div>
+                                <div class="cell-header">PHP</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">
+                                    <img
+                                        src="./images/Screenshot 2024-06-20 152800.png"
+                                        alt="post php image"
+                                    />
+                                </div>
+                                <div class="cells">
+                                    <pre><code>&lt;p&gt;Many Field Types...&lt;/p&gt;
+&lt;form method="post"&gt;
+    &lt;p&gt;
+        &lt;label for="guess"&gt;Input Guess&lt;/label&gt;
+        &lt;input type="text" name="guess" id="guess" size="40"&gt;
+    &lt;/p&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+&lt;pre&gt;
+$_POST:
+&lt;?php
+    print_r($_POST);
+?&gt;
+&lt;/pre&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer-table">
+                            <div class="head-row-full">
+                                <div class="cell-header">Default CSS</div>
+                            </div>
+                            <div class="body-row-full">
+                                <div class="cells">
+                                    <pre><code></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="inputs">Input Types</h3>
+                        <ul>
+                            <li>
+                                the name attribute in inputs is used for the
+                                POST & GET. ID, class, size etc are purely for
+                                css, js, etc.
+                            </li>
+                            <li>Types:</li>
+                            <ul>
+                                <li>Text</li>
+                                <li>Password</li>
+                                <li>Radio Button</li>
+                                <li>Check Box</li>
+                                <li>Select / Drop- Down</li>
+                                <li>Textarea</li>
+                            </ul>
                         </ul>
                         <section>
-                            <h3 class="lvl4 h3-plus">Level 4</h3>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                            </ul>
-                            <section>
-                                <h3 class="lvl5">Level 5</h3>
-                                <ul>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                </ul>
-                            </section>
+                            <h3 class="lvl4" id="text">Text</h3>
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Example</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <p>Many Field Types ...</p>
+                                        <form action="more.php" method="post">
+                                            <p>
+                                                <label for="inp01"
+                                                    >Account:</label
+                                                >
+                                                <input
+                                                    type="text"
+                                                    name="Account"
+                                                    id="inp01"
+                                                    size="40"
+                                                    value="Beth"
+                                                />
+                                            </p>
+                                            <p>
+                                                <label for="inp02"
+                                                    >Password:</label
+                                                >
+                                                <input
+                                                    type="password"
+                                                    name="pw"
+                                                    id="inp02"
+                                                    size="40"
+                                                    value="12345"
+                                                />
+                                            </p>
+                                            <p>
+                                                <label for="inp03"
+                                                    >Nick Name:</label
+                                                >
+                                                <input
+                                                    type="text"
+                                                    name="nick"
+                                                    id="inp03"
+                                                    size="40"
+                                                    value="BK"
+                                                />
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code> &lt;p&gt;Many Field Types ...&lt;/p&gt;
+&lt;form action="more.php" method="post"&gt;
+    &lt;p&gt;
+        &lt;label for="inp01"
+            &gt;Account:&lt;/label
+        &gt;
+        &lt;input
+            type="text"
+            name="Account"
+            id="inp01"
+            size="40"
+        /&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;label for="inp02"
+            &gt;Password:&lt;/label
+        &gt;
+        &lt;input
+            type="password"
+            name="pw"
+            id="inp02"
+            size="40"
+        /&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;label for="inp03"
+            &gt;Nick Name:&lt;/label
+        &gt;
+        &lt;input
+            type="text"
+            name="nick"
+            id="inp03"
+            size="40"
+        /&gt;
+    &lt;/p&gt;
+&lt;/form&gt;  </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>&lt;?php
+$_POST:
+Array(
+    [account] => Beth
+    [pw] => 12345
+    [nick]=> BK
+)
+?&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
+                        <section>
+                            <h3 class="lvl4" id="radio-button">Radio Button</h3>
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Examples</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <form action="radio.php" method="post">
+                                            <p>
+                                                Preferred Time: <br />
+                                                <input
+                                                    type="radio"
+                                                    name="when"
+                                                    value="am"
+                                                />AM <br />
+                                                <input
+                                                    type="radio"
+                                                    name="when"
+                                                    value="pm"
+                                                    checked="checked"
+                                                />PM
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code>&lt;form action="radio.php" method="post"&gt;
+    &lt;p&gt;
+        Preferred Time: &lt;br /&gt;
+        &lt;input
+            type="radio"
+            name="when"
+            value="am"
+        /&gt;AM &lt;br /&gt;
+        &lt;input
+            type="radio"
+            name="when"
+            value="pm"
+        /&gt;PM
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>
+&lt;?php
+$_POST:
+Array(
+[when] => pm
+)
+?&gt;
+                                    </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="checkbox">Checkbox</h3>
+                            <ul>
+                                <li></li>
+                            </ul>
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Examples</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <form
+                                            action="checkbox.php"
+                                            method="post"
+                                        >
+                                            <p>
+                                                Classes taken: <br />
+                                                <input
+                                                    type="checkbox"
+                                                    name="class1"
+                                                    id=""
+                                                    value="si502"
+                                                    checked
+                                                />
+                                                SI502 - Networked Tech<br />
+                                                <input
+                                                    type="checkbox"
+                                                    name="class2"
+                                                    id=""
+                                                    value="si539"
+                                                />
+                                                SI539 - App Engine<br />
+                                                <input
+                                                    type="checkbox"
+                                                    name="class3"
+                                                    id=""
+                                                />
+                                                SI543 - Java <br />
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code> &lt;form
+    action="checkbox.php"
+    method="post"
+&gt;
+    &lt;p&gt;
+        Classes taken: &lt;br /&gt;
+        &lt;input
+            type="checkbox"
+            name="class1"
+            id=""
+            value="si502"
+            checked
+        /&gt;
+        SI502 - Networked Tech&lt;br /&gt;
+        &lt;input
+            type="checkbox"
+            name="class2"
+            id=""
+            value="si539"
+        /&gt;
+        SI539 - App Engine&lt;br /&gt;
+        &lt;input
+            type="checkbox"
+            name="class3"
+            id=""
+        /&gt;
+        SI543 - Java &lt;br /&gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>&lt;?php
+$_POST:
+Array(
+    [class1] => si502
+)
+
+OR
+
+$_POST:
+Array(
+    [class3] => on
+)
+                                            ?&gt;
+                                        </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="select-dropdown">
+                                Select Dropdown
+                            </h3>
+                            <ul>
+                                <li>
+                                    The values can be any string but numbers are
+                                    used more often.
+                                </li>
+                            </ul>
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Examples</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <form
+                                            action="select-dropdown.php"
+                                            method="post"
+                                        >
+                                            <p>
+                                                <label for="inp06" id="inp06"
+                                                    >Which Soda:</label
+                                                >
+                                                <select name="soda" id="inp06">
+                                                    <option value="0">
+                                                        -- Please Select --
+                                                    </option>
+                                                    <option value="1">
+                                                        Coke
+                                                    </option>
+                                                    <option value="2">
+                                                        Pepsi
+                                                    </option>
+                                                    <option value="3">
+                                                        Mountain Dew
+                                                    </option>
+                                                    <option value="4">
+                                                        Orange Juice
+                                                    </option>
+                                                    <option value="5">
+                                                        Lemonade
+                                                    </option>
+                                                </select>
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code> &lt;form
+    action="select-dropdown.php"
+    method="post"
+&gt;
+    &lt;p&gt;
+        &lt;label for="inp06" id="inp06"
+            &gt;Which Soda:&lt;/label
+        &gt;
+        &lt;select name="soda" id="inp06"&gt;
+            &lt;option value="0"&gt;
+                -- Please Select --
+            &lt;/option&gt;
+            &lt;option value="1"&gt;
+                Coke
+            &lt;/option&gt;
+            &lt;option value="2"&gt;
+                Pepsi
+            &lt;/option&gt;
+            &lt;option value="3"&gt;
+                Mountain Dew
+            &lt;/option&gt;
+            &lt;option value="4"&gt;
+                Orange Juice
+            &lt;/option&gt;
+            &lt;option value="5"&gt;
+                Lemonade
+            &lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>&lt;?php
+$_POST:
+Array(
+    [soda] => 0
+)
+?&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="select-snacks">
+                                Select Dropdown - Snacks
+                            </h3>
+
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Examples</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <form
+                                            action="select-snacks.php"
+                                            method="post"
+                                        >
+                                            <p>
+                                                <label for="inp07" id="inp07"
+                                                    >Which Snack:</label
+                                                >
+                                                <select name="snack" id="inp07">
+                                                    <option value="">
+                                                        -- Please Select --
+                                                    </option>
+                                                    <option value="chips">
+                                                        Chips
+                                                    </option>
+                                                    <option
+                                                        value="peanuts"
+                                                        selected
+                                                    >
+                                                        Peanuts
+                                                    </option>
+                                                    <option value="cookie">
+                                                        Cookie
+                                                    </option>
+                                                </select>
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code> &lt;form
+    action="select-snacks.php"
+    method="post"
+&gt;
+    &lt;p&gt;
+        &lt;label for="inp07" id="inp07"
+            &gt;Which Snack:&lt;/label
+        &gt;
+        &lt;select name="snack" id="inp07"&gt;
+            &lt;option value=""&gt;
+                -- Please Select --
+            &lt;/option&gt;
+            &lt;option value="chips"&gt;
+                Chips
+            &lt;/option&gt;
+            &lt;option
+                value="peanuts"
+                selected
+            &gt;
+                Peanuts
+            &lt;/option&gt;
+            &lt;option value="cookie"&gt;
+                Cookie
+            &lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>&lt;?php
+$_POST:
+Array(
+    [snack] => peanuts
+)
+?&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="textarea">Textarea</h3>
+                            <ul>
+                                <li></li>
+                            </ul>
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Examples</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <form
+                                            action="textarea.php"
+                                            method="post"
+                                        >
+                                            <p>
+                                                <label for="inp08"
+                                                    >Tell us about yourself:<br
+                                                /></label>
+                                                <textarea
+                                                    name="about"
+                                                    id="inp08"
+                                                    cols="40"
+                                                    rows="10"
+                                                >
+                                                    I love building web sites in PHP and MySQL.
+                                                </textarea>
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code>&lt;form
+    action="textarea.php"
+    method="post"
+&gt;
+    &lt;p&gt;
+        &lt;label for="inp08"
+            &gt;Tell us about yourself:&lt;br
+        /&gt;&lt;/label&gt;
+        &lt;textarea
+            name="about"
+            id="inp08"
+            cols="40"
+            rows="10"
+        &gt;
+            I love building web sites in PHP and MySQL.
+        &lt;/textarea&gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>&lt;?php
+$_POST:
+Array (
+    [about] => I love building web sites in PHP and MySQL.
+)
+?&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="multiple-select">
+                                Multiple Select Checkbox
+                            </h3>
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Examples</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <form
+                                            action="multiple-select.php"
+                                            method="post"
+                                        >
+                                            <p>
+                                                <label for="inp09"
+                                                    >Which are awesome?<br />
+                                                    <select
+                                                        multiple="multiple"
+                                                        name="code[]"
+                                                        id="inp09"
+                                                    >
+                                                        <option value="python">
+                                                            Python
+                                                        </option>
+                                                        <option value="css">
+                                                            CSS
+                                                        </option>
+                                                        <option value="html">
+                                                            HTML
+                                                        </option>
+                                                        <option value="php">
+                                                            PHP
+                                                        </option>
+                                                    </select></label
+                                                >
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code>&lt;form
+    action="multiple-select.php"
+    method="post"
+&gt;
+    &lt;p&gt;
+        &lt;label for="inp09"
+            &gt;Which are awesome?&lt;br /&gt;
+            &lt;select
+                multiple="multiple"
+                name="code"
+                id="inp09"
+            &gt;
+                &lt;option value="python"&gt;
+                    Python
+                &lt;/option&gt;
+                &lt;option value="css"&gt;
+                    CSS
+                &lt;/option&gt;
+                &lt;option value="html"&gt;
+                    HTML
+                &lt;/option&gt;
+                &lt;option value="php"&gt;
+                    PHP
+                &lt;/option&gt;
+            &lt;/select&gt;&lt;/label
+        &gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>&lt;?php
+$_POST:
+Array(
+    [code] => Array (
+        [0] => css
+        [2] => html
+    )
+)
+?&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="submit">Submit</h3>
+                            <div class="outer-table">
+                                <div class="head-row">
+                                    <div class="cell-header">Examples</div>
+                                    <div class="cell-header">HTML</div>
+                                </div>
+                                <div class="body-row">
+                                    <div class="cells">
+                                        <form action="submit.php" method="post">
+                                            <p>
+                                                <input
+                                                    type="submit"
+                                                    value="Submit"
+                                                    name="dopost"
+                                                />
+                                                <input
+                                                    type="button"
+                                                    value="Escape"
+                                                    onclick="location.href='http://www.google.ca'; return false;"
+                                                />
+                                            </p>
+                                        </form>
+                                    </div>
+                                    <div class="cells">
+                                        <pre><code>&lt;form action="submit.php" method="post"&gt;
+    &lt;p&gt;
+        &lt;input
+            type="submit"
+            value="Submit"
+            name="dopost"
+        /&gt;
+        &lt;input
+            type="button"
+            value="Escape"
+            onclick="location.href='http://www.google.ca'; return false;"
+        /&gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="outer-table">
+                                <div class="head-row-full">
+                                    <div class="cell-header">PHP Code</div>
+                                </div>
+                                <div class="body-row-full">
+                                    <div class="cells">
+                                        <pre><code>&lt;?php
+$_POST:
+Array(
+    [dopost] => Submit
+)
+?&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 
+                        section>h3.lvl4#{}+ul>li^div.outer-table>div.head-row>div.cell-header{Examples}+div.cell-header{HTML}^div.body-row>div.cells+div.cells>pre>code^^^^div.outer-table>div.head-row-full>div.cell-header{PHP Code}^div.body-row-full>div.cells>pre>code{&lt;?php}{}{?&gt;}>
+                        
+                        -->
                     </section>
+                </section>
+                <section>
+                    <h2 class="lvl2" id="processing-data">Processing Data</h2>
+
+                    <section>
+                        <h3 class="lvl3" id="persising-data">
+                            Persisiting Data
+                        </h3>
+                        <ul>
+                            <li>
+                                Keeping data the user entered even after
+                                processing (auto fill style)
+                            </li>
+                            <li>
+                                as value on the html input, use &lt;?=
+                                htmlentities($variable)?&gt;
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="html-injection">HTML Injection</h3>
+                        <ul>
+                            <li></li>
+                        </ul>
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Examples</div>
+                                <div class="cell-header">HTML</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells">see <a href="./"></a></div>
+                                <div class="cells">
+                                    <pre><code></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer-table">
+                            <div class="head-row-full">
+                                <div class="cell-header">PHP Code</div>
+                            </div>
+                            <div class="body-row-full">
+                                <div class="cells">
+                                    <pre><code>&lt;?php</code>
+                                            
+                                            ?&gt;
+                                        </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <h2 class="lvl2" id="data-validation">Data Validation</h2>
+                    <ul>
+                        <li>
+                            Making sure all data is present and in the correct
+                            format
+                        </li>
+                        <ul>
+                            <li>Non empty strlen($var)>0</li>
+                            <li>A number is_numeric($var)</li>
+                            <li>An email address strpos($var, '@') > 0</li>
+                            <li>
+                                OR filter_var($var, FILTER_VALIDATE_EMAIL) !==
+                                false
+                            </li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </ul>
+                    <section>
+                        <h3 class="lvl3"></h3>
+                        <ul>
+                            <li></li>
+                        </ul>
+                        <div class="outer-table">
+                            <div class="head-row">
+                                <div class="cell-header">Examples</div>
+                                <div class="cell-header">HTML</div>
+                            </div>
+                            <div class="body-row">
+                                <div class="cells"></div>
+                                <div class="cells">
+                                    <pre><code></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer-table">
+                            <div class="head-row-full">
+                                <div class="cell-header">Default CSS</div>
+                            </div>
+                            <div class="body-row-full">
+                                <div class="cells">
+                                    <pre><code></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <h2 class="lvl2" id="model-view-controller">
+                        Model View Controller
+                    </h2>
+                    <ul>
+                        <li>
+                            A model defines the elements of a web application
+                            and how they interact
+                        </li>
+                        <li>View - produces output</li>
+                        <li>Model - handles data</li>
+
+                        <li>Controller - Orchestration/Routing</li>
+                    </ul>
+
+                    <div>
+                        <img
+                            src="./images/Screenshot 2024-06-20 195557.png"
+                            alt="mvc"
+                        />
+                        <br /><br /><br />
+                        <img
+                            src="./images/Screenshot 2024-06-20 195748.png"
+                            alt="mvc-limits"
+                        />
+                    </div>
                 </section>
             </article>
         </main>
